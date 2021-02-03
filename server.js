@@ -29,7 +29,16 @@ var server = http.createServer(function(req, resp){
 		}
 	});
 });
-
+const MongoClient = require('mongodb').MongoClient;
+  const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
+  // connect to the MongoDB database
+  MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
+  if (!err) {
+    console.log('Successfully connected to MongoDB!');
+  } else {
+    throw err;
+  }
+  });
 server.listen(8080);
 
 

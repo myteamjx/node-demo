@@ -6,5 +6,9 @@
   "scripts": {
     "test": "echo \"no test specified\" && exit 0",
     "start": "node server.js"
+  },
+  "dependencies": {
+    "mongod": "^2.0.0",
+    "mongodb": "^3.6.4"
   }
 }
