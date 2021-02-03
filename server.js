@@ -43,7 +43,7 @@ const mongoose = require('mongoose');
 // Connection URL
 mongoose.Promise = global.Promise;
 //const mongoUri = 'mongodb://preview-mongodb:27017';
-const mongoUri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority'
+const mongoUri = 'mongodb+srv://Anju:test@db/mernproject?retryWrites=true&w=majority'
 if(mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }))
 {
 	console.log('successfully connected');
