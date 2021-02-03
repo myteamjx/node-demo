@@ -30,17 +30,17 @@ var server = http.createServer(function(req, resp){
 	});
 });
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb+srv://Anju:test@db/mernproject?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Anju:test@db.jx-staging.svc.cluster.local/mernproject?retryWrites=true&w=majority';
   // connect to the MongoDB database
 MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
 if (!err) {
  console.log('Successfully connected to MongoDB!');
-	var dbo = db.db("mydb123");
-  dbo.createCollection("customers", function(err, res) {
-    if (err) throw err;
-    console.log("Collection created!");
-    db.close();
-  })
+//	var dbo = db.db("mydb123");
+  //dbo.createCollection("customers", function(err, res) {
+    //if (err) throw err;
+   // console.log("Collection created!");
+   // db.close();
+  //}
 } else {
  throw err;
 }
