@@ -44,11 +44,14 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //const mongoUri = 'mongodb://preview-mongodb:27017';
 const mongoUri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority'
-mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false })
+if(mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }))
+{
+	console.log('successfully connected');
+}
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to database: ${mongoUri}`)
 })
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'))
+console.log('Before server starts listening');
 server.listen(8080);
 
 
