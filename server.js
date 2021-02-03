@@ -29,16 +29,26 @@ var server = http.createServer(function(req, resp){
 		}
 	});
 });
-const MongoClient = require('mongodb').MongoClient;
-  const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
+//const MongoClient = require('mongodb').MongoClient;
+  //const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
   // connect to the MongoDB database
-  MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
-  if (!err) {
-    console.log('Successfully connected to MongoDB!');
-  } else {
-    throw err;
-  }
-  });
+  //MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
+  //if (!err) {
+    //console.log('Successfully connected to MongoDB!');
+  //} else {
+   // throw err;
+  //}
+  //});
+const mongoose = require('mongoose');
+// Connection URL
+mongoose.Promise = global.Promise;
+//const mongoUri = 'mongodb://preview-mongodb:27017';
+const mongoUri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority'
+mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false })
+mongoose.connection.on('error', () => {
+  throw new Error(`unable to connect to database: ${mongoUri}`)
+})
+mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'))
 server.listen(8080);
 
 
