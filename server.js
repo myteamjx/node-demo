@@ -35,7 +35,7 @@ const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retr
 MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
 if (!err) {
  console.log('Successfully connected to MongoDB!');
-	var dbo = db.db("mydb");
+	var dbo = db.db("mydb123");
   dbo.createCollection("customers", function(err, res) {
     if (err) throw err;
     console.log("Collection created!");
