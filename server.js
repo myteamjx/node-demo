@@ -30,7 +30,7 @@ var server = http.createServer(function(req, resp){
 	});
 });
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb://Anju:test@db:9376/mernproject?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
   // connect to the MongoDB database
 MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
 if (!err) {
