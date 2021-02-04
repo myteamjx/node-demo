@@ -30,33 +30,33 @@ var server = http.createServer(function(req, resp){
 	});
 });
 const MongoClient = require('mongodb').MongoClient;
-const uri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
+const mongoUri = 'mongodb+srv://Anju:test@cluster0.ure2o.mongodb.net/mernproject?retryWrites=true&w=majority';
   // connect to the MongoDB database
-MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
-if (!err) {
- console.log('Successfully connected to MongoDB!');
+//MongoClient.connect(uri, { useNewUrlParser: true }, function(err, db) {
+//if (!err) {
+ //console.log('Successfully connected to MongoDB!');
 //	var dbo = db.db("mydb123");
   //dbo.createCollection("customers", function(err, res) {
     //if (err) throw err;
    // console.log("Collection created!");
    // db.close();
   //}
-} else {
- throw err;
-}
-});
-//const mongoose = require('mongoose');
+//} else {
+// throw err;
+//}
+//});
+const mongoose = require('mongoose');
 // Connection URL
-//mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 //const mongoUri = 'mongodb://preview-mongodb:27017';
 //const mongoUri = 'mongodb+srv://Anju:test@db.jx-staging.svc.cluster.local/mernproject?retryWrites=true&w=majority'
-//if(mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }))
-//{
-//	console.log('successfully connected');
-//}
-//mongoose.connection.on('error', () => {
- //throw new Error(`unable to connect to database: ${mongoUri}`)
-//})
+if(mongoose.connect(mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false }))
+{
+	console.log('successfully connected');
+}
+mongoose.connection.on('error', () => {
+ throw new Error(`unable to connect to database: ${mongoUri}`)
+})
 console.log('Before server starts listening');
 server.listen(8080);
 
